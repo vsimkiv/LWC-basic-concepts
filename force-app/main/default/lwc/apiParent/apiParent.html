@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="@api decorator with properties" 
+                    icon-name="custom:custom3">
+        <hr>
+        <div>
+            <p>Child #1. With default values</p>
+            <c-api-child>
+            </c-api-child>
+        </div>
+        
+        <hr>
+        <div>
+            <p>Child #2. After update in HTML file of Parent component</p>
+            <c-api-child public-message="CHANGED"
+                         private-message="CHANGED">            
+            </c-api-child>                
+        </div>
+    </lightning-card>
+</template>
