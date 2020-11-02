@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Lightning web component for LMS demo" icon-name="custom:custom18">
+        <div class="slds-p-around_medium lgc-bg">    
+            <lightning-button label="Subscribe to Message Channel" 
+                              onclick={subscribeMC}>
+            </lightning-button>
+            <lightning-button label="Cancel Subscription" 
+                            onclick={unsubscribeMC}>
+            </lightning-button>
+        </div>
+    
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Enter your message here:" value={myMessage} onchange={handleChange}></lightning-input>
+            <lightning-button label="Publish message" onclick={publishMC}></lightning-button>
+        </div>
+
+        <div class="slds-p-around_medium lgc-bg">
+            <p>Latest Message Received:</p>
+            <lightning-formatted-text value={receivedMessage}></lightning-formatted-text>
+        </div>
+    </lightning-card>
+</template>

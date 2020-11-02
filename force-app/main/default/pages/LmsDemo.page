@@ -1,0 +1,48 @@
+<apex:page >
+    <h1> VisualForce page for LMS demo </h1>
+    <hr/>
+    <div>
+        <button onclick="subscribeMC()">Subscribe to Message Channel</button>
+        <button onclick="unsubscribeMC()">Cancel Subscription</button>
+        <hr/>
+        <p>Enter Your Message Here:</p>
+        <input type="text" id="theMessage" />
+        <button onclick="publishMC()"> Publish Message</button>
+        <hr/>
+        <p>Latest Message Received:</p>
+        <label id="MCMessageText"/>
+    </div>
+  
+    <script>
+        var SAMPLEMC = "{!$MessageChannel.MyMessageChannel__c}";
+        var subscriptionToMC;
+
+        function publishMC() {
+            const message = {
+                messageToSend: document.getElementById('theMessage').value,
+                sourceSystem: "From VisualForce Page"
+            };
+            sforce.one.publish(SAMPLEMC, message);
+        }
+      
+        function displayMessage(message) {
+            var textLabel = document.querySelector("#MCMessageText");
+            textLabel.innerHTML = message 
+            					? JSON.stringify(message, null, '\t') 
+            					: 'no message payload';
+        }
+
+        function subscribeMC() {
+            if (!subscriptionToMC) {
+                subscriptionToMC = sforce.one.subscribe(SAMPLEMC, displayMessage);
+            }
+        }
+
+        function unsubscribeMC() {
+            if (subscriptionToMC) {
+                sforce.one.unsubscribe(subscriptionToMC);
+                subscriptionToMC = null;
+            }
+        }
+    </script>
+</apex:page>
