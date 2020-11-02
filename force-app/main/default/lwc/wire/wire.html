@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="@wire decorator" icon-name="custom:custom20">
+        <lightning-layout multiple-rows="true">
+            <template if:true={accounts.data}>
+                <template for:each={accounts.data} for:item="acc">
+                    <lightning-layout-item size="12" key={acc.Id}>
+                        <p class="slds-p-horizontal_small">{acc.Name}</p>
+                    </lightning-layout-item>
+                </template>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+
+
+    <lightning-card title="Imperative Apex Call" icon-name="standard:person_account">
+        <lightning-button label="Show Accounts" onclick={onShowClick}></lightning-button>
+        <lightning-button label="Hide Accounts" onclick={onHideClick}></lightning-button>
+
+        <lightning-layout multiple-rows="true">
+            <template if:true={showAccounts}>
+                <template for:each={accountsList} for:item="account">
+                    <lightning-layout-item size="12" key={account.Id}>
+                        <p class="slds-p-horizontal_small">{account.Name}</p>
+                    </lightning-layout-item>
+                </template>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+</template>
