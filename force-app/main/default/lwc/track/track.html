@@ -1,0 +1,19 @@
+<template>
+        <lightning-card title="Update whole object without @track" icon-name="custom:custom22">
+            <p class="slds-p-horizontal_small">Name: {dog.name}</p>
+            <p class="slds-p-horizontal_small">Age: {dog.age}</p>
+            <lightning-button onclick={updateDog} slot="actions" label="Update Dog"></lightning-button>
+        </lightning-card>
+
+        <lightning-card title="Update fields without @track" icon-name="custom:custom33">
+            <p class="slds-p-horizontal_small">Name: {cat.name}</p>
+            <p class="slds-p-horizontal_small">Age: {cat.age}</p>
+            <lightning-button onclick={updateCat} slot="actions" label="Update Cat"></lightning-button>
+        </lightning-card>
+        
+        <lightning-card title="Update fields with @track" icon-name="custom:custom66">
+            <p class="slds-p-horizontal_small">Name: {pig.name}</p>
+            <p class="slds-p-horizontal_small">Age: {pig.age}</p>
+            <lightning-button onclick={updatePig} slot="actions" label="Update Pig"></lightning-button>
+        </lightning-card>
+</template>
